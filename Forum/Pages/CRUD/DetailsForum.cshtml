@@ -1,0 +1,37 @@
+﻿@page
+@model Forum.Pages.CRUD.DetailsForumModel
+
+@{
+    ViewData["Title"] = "DetailsForum";
+}
+
+<h1>DetailsForum</h1>
+
+<div>
+    <h4>ForumIndex</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ForumIndex.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ForumIndex.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ForumIndex.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ForumIndex.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ForumIndex.Created)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ForumIndex.Created)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./EditForum" asp-route-id="@Model.ForumIndex.Id">Edit</a> |
+    <a asp-page="../Forum">Back to forum</a>
+</div>

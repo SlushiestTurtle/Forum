@@ -1,0 +1,74 @@
+﻿@page
+@using Forum.Utility
+@model Forum.Pages.PostModel
+@{
+    ViewData["Title"] = "Post";
+}
+<h1>@ViewData["Title"]</h1>
+@if (User.IsInRole(StaticRoles.Admin) || User.IsInRole(StaticRoles.Moderator) || User.IsInRole(StaticRoles.User))
+{
+<p>
+    <a class="btn btn-success" asp-route-id="@Model.forumId" asp-page="./CRUD/CreatePost">Create New</a>
+</p>
+}
+<table class="table">
+    <thead class="table-head">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Posts[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Posts[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Posts[0].Created)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Posts[0].User.UserName)
+            </th>
+            @if(User.IsInRole(StaticRoles.Admin) || User.IsInRole(StaticRoles.Moderator))
+                {
+                <th>
+                    Select Edit
+                </th>
+                <th>
+                    Select Detail
+                </th>
+                <th>
+                    Select Delete
+                </th>
+                }
+        </tr>
+    </thead>
+@foreach (var post in @Model.Posts)
+        {
+        <tbody>
+            <tr>
+                <td>
+                     @Html.DisplayFor(model => post.Title)
+                </td>
+                <td>
+                     @Html.DisplayFor(model => post.Description)
+                </td>
+                <td>
+                     @Html.DisplayFor(model => post.Created)
+                </td>
+                <td>
+                     @Html.DisplayFor(model => post.User.Name)
+                </td>
+                @if(User.IsInRole(StaticRoles.Admin) || User.IsInRole(StaticRoles.Moderator))
+                {
+                <td>
+                    <a class="btn btn-primary" asp-page="./CRUD/EditPost" asp-route-id="@post.Id">Edit</a>
+                </td>
+                <td>
+                    <a class="btn btn-info" asp-page="./CRUD/PostDetail" asp-route-id="@post.Id">Details</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" asp-page="./CRUD/DeletePost" asp-route-id="@post.Id">Delete</a>
+                </td>
+                }
+            </tr>
+        </tbody>
+        }
+</table>

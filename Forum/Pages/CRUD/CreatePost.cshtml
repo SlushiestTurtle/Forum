@@ -1,0 +1,60 @@
+﻿@page
+@using Forum.Models
+@model Forum.Pages.CRUD.CreatePostModel
+@using Microsoft.AspNetCore;
+
+@{
+}
+
+<h1>CreatePost</h1>
+
+<h4>Post</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Post.Title" class="control-label"></label>
+                <input asp-for="Post.Title" class="form-control" />
+                <span asp-validation-for="Post.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Post.Description" class="control-label"></label>
+                <input asp-for="Post.Description" class="form-control" />
+                <span asp-validation-for="Post.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="Post.Forum" class="control-label"></label>
+                @Html.DropDownList("Forum: ", (IEnumerable<SelectListItem>)ViewData["Forum"], "--- Forum ---", "DropDownList")*@
+                @*<select id="select-forum" asp-for="forumId" asp-items="@(new SelectList(@Model.Forums, "Id", "Title"))">
+                    <option value="" selected disabled>--- Select Forum ---</option>
+                </select>*@
+                <label asp-for="forumid"></label>
+                <select id="select-forum" asp-for="id" asp-items="@Model.selectListItems">
+                    <option value="" selected disabled>--- Select Forum ---</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="../Forum">Back to List</a>
+</div>
+@*<script>
+    window.onload = function () {
+    var selItem = sessionStorage.getItem("selItem");
+    $('#select-forum').val(selItem);
+    }
+$('#select-forum').change(function () {
+    var selVal = $(this).val();
+    sessionStorage.setItem("selItem", selVal);
+});
+</script>*@
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

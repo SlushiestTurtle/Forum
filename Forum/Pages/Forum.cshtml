@@ -1,0 +1,72 @@
+﻿@page
+@using Forum.Utility
+@model ForumModel
+@{
+    ViewData["Title"] = "Forum";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    @if(User.IsInRole(StaticRoles.Admin) || User.IsInRole(StaticRoles.Moderator))
+    {
+        <a class="btn btn-success" asp-page="./CRUD/CreateForum">Create New</a>
+    }
+</p>
+<table class="table">
+    <thead class="table-head">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Forums[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Forums[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Forums[0].Created)
+            </th>
+                @if(User.IsInRole(StaticRoles.Admin) || User.IsInRole(StaticRoles.Moderator))
+                {
+                <th>
+                    Select Edit
+                </th>
+                <th>
+                    Select Detail
+                </th>
+                <th>
+                    Select Delete
+                </th>
+                }
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var forum in Model.Forums) {
+        <tr>
+            <td>
+                <a class="a-link" asp-route-id="@forum.Id" asp-page="./Post">@Html.DisplayFor(model => forum.Title)</a>
+            </td>
+            <td>
+                <p>@Html.DisplayFor(model => forum.Description)</p>
+            </td>
+            <td>
+                <p>@Html.DisplayFor(model => forum.Created)</p>
+            </td>
+                @if(User.IsInRole(StaticRoles.Admin) || User.IsInRole(StaticRoles.Moderator))
+                {
+                <td>
+                    <a class="btn btn-primary" asp-page="./CRUD/EditForum" asp-route-id="@forum.Id">Edit</a>
+                </td>
+                <td>
+                    <a class="btn btn-info" asp-page="./CRUD/DetailsForum" asp-route-id="@forum.Id">Details</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" asp-page="./CRUD/DeleteForum" asp-route-id="@forum.Id">Delete</a>
+                </td>
+                }
+            </tr>
+}
+    </tbody>
+</table>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
