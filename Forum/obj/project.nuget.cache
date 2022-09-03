@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "A9cr4xKJn51V38r4PcsGfaSB8fsW6Jm9cafyjQWiMB6r6IWcp9EafHUwk6CUdmBZPoQ4cCtfiESBFZ3pskoySg==",
+  "dgSpecHash": "NxN6P9hErL77esh7O2NeksK1IhBXbt5uBojyrnBZMhPp+qwycB6Bg3xfX8diT3RdABOH6cFt5AIGj2td7y4v5Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tony_\\Dropbox\\PC\\Documents\\GitHub\\I_do_my_test_here\\Webb ASP.net\\Forum\\Forum.csproj",
+  "projectFilePath": "C:\\Users\\tony_\\Dropbox\\PC\\Documents\\GitHub\\Forum\\Forum\\Forum.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tony_\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\tony_\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.16\\microsoft.aspnetcore.cryptography.internal.5.0.16.nupkg.sha512",
