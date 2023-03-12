@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Forum.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Forum.Data
@@ -9,5 +10,6 @@ namespace Forum.Data
             : base(options)
         {
         }
+        public DbSet<ContactUs> ContactUs { get; set; }
     }
 }

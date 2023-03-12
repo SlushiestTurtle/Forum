@@ -1,0 +1,25 @@
+﻿@page
+@model Forum.Pages.ContactFormModel
+@{
+    ViewData["Title"] = "Contact us";
+}
+
+<div>
+    <form method="post">
+        <div class="form-input">
+            <label asp-for="From">Email</label>
+            <input asp-for="From" />
+        </div>
+        <div class="form-input">
+            <label asp-for="Subject">Subject</label>
+            <input asp-for="Subject" />
+        </div>
+        <div class="form-input">
+            <label asp-for="Message">Comments</label>
+            <textarea asp-for="Message" placeholder="Type you request..." />
+        </div>
+        @*<div class="form-input">
+            <button type="submit">Send</button>
+        </div>*@
+    </form>
+</div>
