@@ -1,0 +1,50 @@
+﻿@page
+@model Forum.Pages.ThreadForum.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ForumThread</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ForumThread.Id" />
+            <div class="form-group">
+                <label asp-for="ForumThread.Title" class="control-label"></label>
+                <input asp-for="ForumThread.Title" class="form-control" />
+                <span asp-validation-for="ForumThread.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ForumThread.Description" class="control-label"></label>
+                <input asp-for="ForumThread.Description" class="form-control" />
+                <span asp-validation-for="ForumThread.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ForumThread.CreatedDate" class="control-label"></label>
+                <input asp-for="ForumThread.CreatedDate" class="form-control" />
+                <span asp-validation-for="ForumThread.CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ForumThread.UpdatedDate" class="control-label"></label>
+                <input asp-for="ForumThread.UpdatedDate" class="form-control" />
+                <span asp-validation-for="ForumThread.UpdatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
