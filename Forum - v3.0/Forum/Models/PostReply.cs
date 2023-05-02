@@ -13,6 +13,8 @@ namespace Forum.Models
         public DateTime? CreatedDate { get; set; }
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? UpdateDate { get; set; }
+        public Post? Post { get; set; }
+        public User? User { get; set; }
         public PostReply(long id, string? title, string? content, DateTime? createdDate, DateTime? updateDate)
         {
             Id = id;

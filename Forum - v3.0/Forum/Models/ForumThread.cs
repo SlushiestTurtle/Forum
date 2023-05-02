@@ -16,14 +16,5 @@ namespace Forum.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? UpdatedDate { get; set; }
         public User? User { get; set; }
-        //public ForumThread(long id, string title, string description, DateTime createDate, DateTime updateDate, User user) 
-        //{
-        //    Id = id;
-        //    Title = title;
-        //    Description = description;
-        //    CreatedDate = createDate;
-        //    UpdatedDate = updateDate;
-        //    User = user;
-        //}
     }
 }
